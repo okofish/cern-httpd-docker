@@ -24,10 +24,10 @@ jobs:
         with:
           push: true
           file: Dockerfile
-          tags:
-            - jessews/cern-httpd:latest
-            - jessews/cern-httpd:base
-            - jessews/cern-httpd:3.0a
+          tags: |
+            jessews/cern-httpd:latest
+            jessews/cern-httpd:base
+            jessews/cern-httpd:3.0a
       - name: Image digest - base
         run: echo "${{ steps.docker_build_base.outputs.digest }}"
 
@@ -37,8 +37,8 @@ jobs:
         with:
           push: true
           file: Dockerfile-history
-          tags:
-            - jessews/cern-httpd:history
-            - jessews/cern-httpd:3.0a-history
+          tags: |
+            jessews/cern-httpd:history
+            jessews/cern-httpd:3.0a-history
       - name: Image digest - history
         run: echo "${{ steps.docker_build_history.outputs.digest }}"
