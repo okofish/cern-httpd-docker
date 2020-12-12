@@ -1,0 +1,23 @@
+-- Library/Implementation/HTTCP.c
++++ Library/Implementation/HTTCP.c
+@@ -139,7 +139,7 @@ PUBLIC CONST char * HTErrnoString NOARGS
+ #define ER_NO_TRANS_DONE
+ #endif
+ 
+-#if defined(NeXT) || defined(THINK_C)
++#if defined(NeXT) || defined(THINK_C) || 1
+     return strerror(errno);
+ #define ER_NO_TRANS_DONE
+ #endif
+--- Library/Implementation/tcp.h
++++ Library/Implementation/tcp.h
+@@ -733,7 +733,8 @@ Regular BSD unix versions
+ #define STRUCT_DIRENT struct direct
+ #endif
+ 
+-#if defined(sun) && defined(__svr4__)
++#if defined(sun) && defined(__svr4__) || 1
++#include <time.h>
+ #include <sys/fcntl.h>
+ #include <limits.h>
+ #endif

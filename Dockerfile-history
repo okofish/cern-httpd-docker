@@ -1,0 +1,20 @@
+FROM alpine:3.12 as builder
+
+
+WORKDIR /tmp
+
+# from https://www.w3.org/History/
+ADD https://www.w3.org/History/19921103-hypertext/hype.tar /tmp/hype.tar
+RUN tar -x -f hype.tar
+
+# merge in some useful stuff from the httpd archive
+# (namely C source files, which are linked from some pages but not
+# present in the history archive)
+ADD https://www.w3.org/Daemon/httpd/w3c-httpd-3.0A.tar.gz /tmp/httpd.tar
+RUN tar -xk -C /tmp/hypertext/WWW -f /tmp/httpd.tar Daemon Library
+
+FROM jessews/cern-httpd:latest
+
+COPY --from=builder /tmp/hypertext /srv/www
+
+USER root
