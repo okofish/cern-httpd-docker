@@ -9,13 +9,16 @@ The <A HREF=/hypertext>/hypertext</A> directory on this server contains a 1992 p
 The particular server hosting this page is a <A HREF=http://hub.docker.com/r/jessews/cern-httpd>containerized instance</A> of the 3.0A httpd, assembled in 2020 -- 30 years after Tim Berners-Lee began development on the software. Only <A HREF=http://github.com/okofish/cern-httpd-docker/blob/master/httpd-patches.patch>three lines</A> in the 1996 code were changed, in order for the software to compile in a modern Linux environment.<P>
 
 A command-line HTTP client such as <A HREF=http://curl.se>curl</A> can be used to inspect the headers sent by this server. Note the "Server: CERN/3.0A" header, the "<A HREF=http://tools.ietf.org/html/rfc1945>HTTP/1.0</A>" version, and the nonstandard "Document follows" reason phrase after the 200 status code:
-<XMP>$ curl -I http://this.host/
+<XMP>
+$ curl -I http://this.host
 HTTP/1.0 200 Document follows
 Server: CERN/3.0A
-Date: Sun, 13 Dec 2020 20:44:20 GMT
+Date: Sun, 13 Dec 2020 21:54:20 GMT
 Content-Type: text/html
-Content-Length: 2352
-Last-Modified: Sun, 13 Dec 2020 20:14:42 GMT</XMP>
+Content-Length: 2367
+Last-Modified: Sun, 13 Dec 2020 21:47:42 GMT
 
-_________________________________________________________________
-<ADDRESS><A HREF=http://jesse.ws>Jesse Friedman</A> &lt;jesse@jesse.ws&gt;, December 2020</ADDRESS>
+</XMP>
+
+<ADDRESS>____________________________________________________________________</ADDRESS>
+<ADDRESS><A HREF=http://jesse.ws>Jesse Friedman</A> (jesse@jesse.ws), December 2020</ADDRESS>
