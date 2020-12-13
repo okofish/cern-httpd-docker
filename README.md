@@ -2,7 +2,7 @@
 
 ## See this image running at [http://oldwww.jesse.ws/](http://oldwww.jesse.ws/).
 
-The [CERN httpd](https://en.wikipedia.org/wiki/CERN_httpd) (HTTP daemon), initially released in June 1991, was the first web server software. This Docker image contains the final version of the software, version 3.0A, released in July 1996. The CERN httpd was developed starting in 1990 by [Tim Berners-Lee](https://en.wikipedia.org/wiki/Tim_Berners-Lee), later joined by [Ari Luotonen](https://www.w3.org/People.html#Luotonen) and [Henrik Frystyk Nielsen](https://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen).
+The [CERN httpd](https://en.wikipedia.org/wiki/CERN_httpd) (HTTP daemon), initially released in June 1991, was the first web server software. This [Docker image](https://hub.docker.com/r/jessews/cern-httpd) contains the final version of the software, version 3.0A, released in July 1996. The CERN httpd was developed starting in 1990 by [Tim Berners-Lee](https://en.wikipedia.org/wiki/Tim_Berners-Lee), later joined by [Ari Luotonen](https://www.w3.org/People.html#Luotonen) and [Henrik Frystyk Nielsen](https://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen).
 
 ## Quick start
 
@@ -13,7 +13,7 @@ $ docker run -p 8080:80 jessews/cern-httpd:history -v
 
 This will start a container with host port 8080 forwarded to container port 80, so you should be able to access the server at [http://localhost:8080](http://localhost:8080).
 
-A command-line HTTP client such as [curl](http://curl.se) can be used to inspect the headers sent by this server. Note the `Server: CERN/3.0A` header, the [`HTTP/1.0`](http://tools.ietf.org/html/rfc1945) version, and the nonstandard `Document follows` reason phrase after the `200` status code:
+A command-line HTTP client such as [curl](https://curl.se) can be used to inspect the headers sent by this server. Note the `Server: CERN/3.0A` header, the [`HTTP/1.0`](https://tools.ietf.org/html/rfc1945) version, and the nonstandard `Document follows` reason phrase after the `200` status code:
 ```shell
 $ curl -I http://localhost:8080
 HTTP/1.0 200 Document follows
@@ -26,7 +26,7 @@ Last-Modified: Sun, 13 Dec 2020 23:14:13 GMT
 
 ## Image variants
 
-### `jessews/cern-httpd` *([Dockerfile](https://github.com/okofish/cern-httpd-docker/blob/master/Dockerfile))*
+### [`jessews/cern-httpd`](https://hub.docker.com/r/jessews/cern-httpd) *([Dockerfile](https://github.com/okofish/cern-httpd-docker/blob/master/Dockerfile))*
 *Base: [`alpine:3.12`](https://hub.docker.com/_/alpine)*  
 This tagged image contains version 3.0A of the CERN httpd at `/usr/local/bin/httpd`. It also contains an `httpd.conf` configuration file (or "rule file") in the default location `/etc/httpd`. The configuration file instructs `httpd` to serve the contents of the `/src/www` directory (empty by default) on port 80.
 
@@ -36,7 +36,7 @@ The `httpd` executable in this image is compiled from source by the [Dockerfile]
 
 ### `jessews/cern-httpd:history` *([Dockerfile](https://github.com/okofish/cern-httpd-docker/blob/master/Dockerfile-history))*
 *Base: `jessews/cern-httpd`*  
-This tagged image is based on the base image variant, with the addition of a 1992 partial snapshot of [http://info.cern.ch](http://info.cern.ch), the first WWW site, in the `/hypertext` subdirectory (i.e. at `/srv/www/hypertext` on disk). This snapshot is obtained from the [W3C Historical Archives](http://www.w3.org/History/19921103-hypertext/hypertext), and has been merged with additional contents from the CERN httpd 3.0A distribution archive in order to fix some broken links. The image also includes an additional [landing page](https://github.com/okofish/cern-httpd-docker/blob/master/content-history/Welcome.html) ("welcome page") served at the root.
+This tagged image is based on the base image variant, with the addition of a 1992 partial snapshot of [http://info.cern.ch](http://info.cern.ch), the first WWW site, in the `/hypertext` subdirectory (i.e. at `/srv/www/hypertext` on disk). This snapshot is obtained from the [W3C Historical Archives](https://www.w3.org/History/19921103-hypertext/hypertext), and has been merged with additional contents from the CERN httpd 3.0A distribution archive in order to fix some broken links. The image also includes an additional [landing page](https://github.com/okofish/cern-httpd-docker/blob/master/content-history/Welcome.html) ("welcome page") served at the root.
 
 ## License
 
