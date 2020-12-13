@@ -38,6 +38,10 @@ The `httpd` executable in this image is compiled from source by the [Dockerfile]
 *Base: `jessews/cern-httpd`*  
 This tagged image is based on the base image variant, with the addition of a 1992 partial snapshot of [http://info.cern.ch](http://info.cern.ch), the first WWW site, in the `/hypertext` subdirectory (i.e. at `/srv/www/hypertext` on disk). This snapshot is obtained from the [W3C Historical Archives](https://www.w3.org/History/19921103-hypertext/hypertext), and has been merged with additional contents from the CERN httpd 3.0A distribution archive in order to fix some broken links. The image also includes an additional [landing page](https://github.com/okofish/cern-httpd-docker/blob/master/content-history/Welcome.html) ("welcome page") served at the root.
 
+## Security notice
+
+The version of the CERN httpd in these images is from 1996. Despite the containerization, care should nonetheless be taken when running a server exposed to the public Internet, as buffer overflows and other vulnerabilities likely exist in this old code.
+
 ## License
 
 The contents of the cern-http-docker GitHub repository are released under the MIT license as given in the [LICENSE](https://github.com/okofish/cern-httpd-docker/blob/master/LICENSE) file.
