@@ -1,0 +1,21 @@
+<TITLE>CERN httpd</TITLE>
+
+<H1>This webpage is being served to you by version 3.0A of the <A HREF=http://en.wikipedia.org/wiki/CERN_httpd>CERN httpd</A>.</H1>
+
+The CERN httpd (HTTP daemon), initially released in June 1991, was the first <A HREF=http://en.wikipedia.org/wiki/Web_server>web server</A> software. Version 3.0A was the final version of the software, released in July 1996. The CERN httpd was developed starting in 1990 by <A HREF=http://en.wikipedia.org/wiki/Tim_Berners-Lee>Tim Berners-Lee</A>, later joined by <A HREF=http://www.w3.org/People.html#Luotonen>Ari Luotonen</A> and <A HREF=http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen>Henrik Frystyk Nielsen</A>.<P>
+
+The <A HREF=/hypertext>/hypertext</A> directory on this server contains a 1992 partial snapshot of <A HREF=http://info.cern.ch>http://info.cern.ch</A>, the first WWW site. This snapshot was obtained from the <A HREF=http://www.w3.org/History/19921103-hypertext/hypertext>W3C Historical Archives</A>, and has been merged with additional contents from the CERN httpd 3.0A distribution archive in order to fix some broken links. "<A HREF=/hypertext/WWW/TheProject.html>The World Wide Web project</A>" is a good page to start browsing from.<P>
+
+The particular server hosting this page is a <A HREF=http://hub.docker.com/r/jessews/cern-httpd>containerized instance</A> of the 3.0A httpd, assembled in 2020 -- 30 years after Tim Berners-Lee began development on the software. Only <A HREF=http://github.com/okofish/cern-httpd-docker/blob/master/httpd-patches.patch>three lines</A> in the 1996 code were changed, in order for the software to compile in a modern Linux environment.<P>
+
+A command-line HTTP client such as <A HREF=http://curl.se>curl</A> can be used to inspect the headers sent by this server. Note the "Server: CERN/3.0A" header, the "<A HREF=http://tools.ietf.org/html/rfc1945>HTTP/1.0</A>" version, and the nonstandard "Document follows" reason phrase after the 200 status code:
+<XMP>$ curl -I http://this.host/
+HTTP/1.0 200 Document follows
+Server: CERN/3.0A
+Date: Sun, 13 Dec 2020 20:44:20 GMT
+Content-Type: text/html
+Content-Length: 2352
+Last-Modified: Sun, 13 Dec 2020 20:14:42 GMT</XMP>
+
+_________________________________________________________________
+<ADDRESS><A HREF=http://jesse.ws>Jesse Friedman</A> &lt;jesse@jesse.ws&gt;, December 2020</ADDRESS>

@@ -15,6 +15,7 @@ RUN tar -xk -C /tmp/hypertext/WWW -f /tmp/httpd.tar Daemon Library
 
 FROM jessews/cern-httpd:latest
 
-COPY --from=builder /tmp/hypertext /srv/www
+COPY content-history /srv/www
+COPY --from=builder /tmp/hypertext /srv/www/hypertext
 
 USER root
